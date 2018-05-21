@@ -1,6 +1,7 @@
 package com.pandaq.pandaeye.api;
 
 import com.pandaq.pandaeye.modules.dishorder.beans.LoginUser;
+import com.pandaq.pandaeye.widget.BaseRespose;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
@@ -22,6 +23,6 @@ public interface DishOrderApi {
      */
     @FormUrlEncoded
     @POST("v1/waiter.login")
-    Observable<LoginUser> login(@Field("username") String userName, @Field("password") String password);
+    Observable<BaseRespose<LoginUser>> login(@Field("username") String userName, @Field("password") String password);
 
 }

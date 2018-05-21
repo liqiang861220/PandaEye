@@ -1,5 +1,8 @@
 package com.pandaq.pandaeye.modules.dishorder;
 
+import com.pandaq.pandaeye.modules.dishorder.beans.LoginUser;
+import com.pandaq.pandaeye.widget.BaseRespose;
+
 /**
  * Created by PandaQ on 2017/4/12.
  * 767807368@qq.com
@@ -13,7 +16,7 @@ public interface DishOrderContract {
 
         void userLogin();
 
-        void loginSuccessed(LoginUser loginUser);
+        void loginSuccessed(BaseRespose<LoginUser> respose);
 
         void loginFail(String errMsg);
 

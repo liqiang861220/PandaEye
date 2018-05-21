@@ -3,6 +3,7 @@ package com.pandaq.pandaeye.modules.dishorder;
 import com.pandaq.pandaeye.BasePresenter;
 import com.pandaq.pandaeye.api.ApiManager;
 import com.pandaq.pandaeye.modules.dishorder.beans.LoginUser;
+import com.pandaq.pandaeye.widget.BaseRespose;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -32,7 +33,7 @@ public class DishOrderPresenter extends BasePresenter implements DishOrderContra
                 .login(userName,password)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<LoginUser>() {
+                .subscribe(new Observer<BaseRespose<LoginUser>>() {
                     @Override
                     public void onComplete() {
                         mDishOrderFrag.hideRefreshBar();
@@ -50,10 +51,11 @@ public class DishOrderPresenter extends BasePresenter implements DishOrderContra
                     }
 
                     @Override
-                    public void onNext(LoginUser mLoginUser) {
+                    public void onNext(BaseRespose<LoginUser> respose) {
                         mDishOrderFrag.hideRefreshBar();
-                        mDishOrderFrag.loginSuccessed(mLoginUser);
+                        mDishOrderFrag.loginSuccessed(respose);
                     }
+
                 });
     }
 

@@ -23,7 +23,7 @@ public class AboutMePresenter extends BasePresenter implements AboutMeContract.P
     public void loadInfo(String user) {
         ApiManager.getInstence()
                 .getGithubService()
-                .getMyInfo(user)
+                .getInfo(user)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<UserInfo>() {

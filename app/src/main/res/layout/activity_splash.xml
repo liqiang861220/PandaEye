@@ -1,29 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/transparent_00ffffff"
-    android:fitsSystemWindows="true"
+    android:background="@color/green_4ad3a7"
     android:orientation="vertical">
 
     <ImageView
-        android:id="@+id/iv_background"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="fitXY"/>
+        android:id="@+id/iv_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:src="@drawable/icon_dish" />
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/iv_splash_image"
-        android:layout_width="@dimen/splash_image_width"
-        android:layout_height="@dimen/splash_image_width"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/splash_image_top_margin"
-        android:background="@color/transparent_00ffffff"
-        android:elevation="4dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/userimage"
-        app:civ_border_color="@color/transparent_3cffffff"
-        app:civ_border_width="5dp"/>
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_logo"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        android:text="@string/app_name"
+        android:textColor="@color/grey_adbec0" />
 </RelativeLayout>

@@ -15,6 +15,9 @@ import com.tencent.smtt.sdk.QbSdk;
 public class CustomApplication extends Application {
     public static CustomApplication sApplication;
 
+    public static Context getAppContext() {
+        return sApplication;
+    }
     @Override
     public void onCreate() {
         super.onCreate();

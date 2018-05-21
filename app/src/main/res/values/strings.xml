@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">熊猫眼</string>
+    <string name="app_name">美味来了</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <!--左侧DrawerLayout菜单-->
