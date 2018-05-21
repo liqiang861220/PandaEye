@@ -12,6 +12,8 @@ public class Config {
     public static String NETEASY_NEWS_API = "http://c.m.163.com/nc/article/";
     public static String MOVIE_API_URL = "http://api.svipmovie.com/front/";
     public static String GITHUB_API_URL = "https://api.github.com/";
+    public static String DISH_ORDER_URL = "http://api.wsrok.com/";
+
     /**
      * 视频分类ID
      */

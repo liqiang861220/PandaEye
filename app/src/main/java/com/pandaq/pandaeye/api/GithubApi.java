@@ -15,5 +15,5 @@ public interface GithubApi {
 
     //获取某一用户的信息
     @GET("users/{user}")
-    Observable<UserInfo> getMyInfo(@Path("user") String path);
+    Observable<UserInfo> getInfo(@Path("user") String path);
 }

@@ -22,6 +22,8 @@ public class ApiManager {
     private NetEasyNewsApi mNewsApi;
     private MovieApi mMovieApi;
     private GithubApi mGithubApi;
+    private DishOrderApi mDishOrderApi;
+
     private static ApiManager sApiManager;
 
     private static OkHttpClient mClient;
@@ -124,6 +126,22 @@ public class ApiManager {
             mGithubApi = retrofit.create(GithubApi.class);
         }
         return mGithubApi;
+    }
+
+    /**
+     * 封装 dish_ordering API
+     */
+    public DishOrderApi getDishOrService() {
+        if (mDishOrderApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl(Config.DISH_ORDER_URL)
+                    .client(mClient)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            mDishOrderApi = retrofit.create(DishOrderApi.class);
+        }
+        return mDishOrderApi;
     }
 
 }
