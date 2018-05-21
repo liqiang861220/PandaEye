@@ -1,4 +1,4 @@
-package com.pandaq.pandaeye.modules.dishorder;
+package com.pandaq.pandaeye.modules.dishorder.beans;
 
 import java.io.Serializable;
 

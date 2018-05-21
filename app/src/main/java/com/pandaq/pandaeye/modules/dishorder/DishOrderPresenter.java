@@ -2,6 +2,7 @@ package com.pandaq.pandaeye.modules.dishorder;
 
 import com.pandaq.pandaeye.BasePresenter;
 import com.pandaq.pandaeye.api.ApiManager;
+import com.pandaq.pandaeye.modules.dishorder.beans.LoginUser;
 
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;

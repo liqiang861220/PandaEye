@@ -45,7 +45,7 @@ import io.reactivex.disposables.Disposable;
 public class VideoHomeFragment extends BaseFragment implements VideoHomeContract.View, SwipeRefreshLayout.OnRefreshListener, BaseRecyclerAdapter.OnItemClickListener {
 
     @BindView(R.id.mrv_video)
-    MagicRecyclerView mMrvVideo;
+        MagicRecyclerView mMrvVideo;
     @BindView(R.id.srl_refresh)
     SwipeRefreshLayout mSrlRefresh;
     @BindView(R.id.empty_msg)

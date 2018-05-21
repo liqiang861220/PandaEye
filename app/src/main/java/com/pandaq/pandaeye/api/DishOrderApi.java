@@ -1,6 +1,6 @@
 package com.pandaq.pandaeye.api;
 
-import com.pandaq.pandaeye.modules.dishorder.LoginUser;
+import com.pandaq.pandaeye.modules.dishorder.beans.LoginUser;
 
 import io.reactivex.Observable;
 import retrofit2.http.Field;
