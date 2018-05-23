@@ -1,6 +1,7 @@
 package com.pandaq.pandaeye.api;
 
 import com.pandaq.pandaeye.modules.dishorder.beans.DishDesk;
+import com.pandaq.pandaeye.modules.dishorder.beans.Floor;
 import com.pandaq.pandaeye.modules.dishorder.beans.FunctionModule;
 import com.pandaq.pandaeye.modules.dishorder.beans.LoginUser;
 import com.pandaq.pandaeye.widget.BaseRespose;
@@ -13,6 +14,7 @@ import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by PandaQ on 2016/9/8.
@@ -44,7 +46,15 @@ public interface DishOrderApi {
      * @param token
      * @return
      */
+    @GET("v1/floors/{token}")
+    Observable<BaseRespose<List<Floor>>> getFloors(@Path("token") String token);
+
+    /**
+     * 获取餐桌
+     * @param token
+     * @return
+     */
     @GET("v1/desks/{token}")
-    Observable<BaseRespose<List<DishDesk>>> getFuncitonBooking(@Path("token") String token);
+    Observable<BaseRespose<List<DishDesk>>> getFuncitonBooking(@Path("token") String token, @Query("floor") int floor);
 
 }

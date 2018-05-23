@@ -9,6 +9,7 @@ import android.widget.GridView;
 import com.pandaq.pandaeye.BaseActivity;
 import com.pandaq.pandaeye.R;
 import com.pandaq.pandaeye.modules.dishorder.beans.DishDesk;
+import com.pandaq.pandaeye.modules.dishorder.beans.Floor;
 import com.pandaq.pandaeye.utils.SPUtils;
 import com.pandaq.pandaeye.utils.ToastUitl;
 import com.pandaq.pandaeye.widget.BaseRespose;
@@ -24,6 +25,7 @@ public class FunctionBookingActivity extends BaseActivity implements FunctionBoo
 
 
     private List<DishDesk> destkData  ;
+    private List<Floor> floorsData  ;
     private FuncitonBookingAdapter funcitonBookingAdapter;
     private FunctionBookingPresenter mpresenter;
     private GridView gv_booking_list;
@@ -47,7 +49,8 @@ public class FunctionBookingActivity extends BaseActivity implements FunctionBoo
             }
         });
         mpresenter = new FunctionBookingPresenter(this);
-        mpresenter.getFunctionBooking(SPUtils.getStringValue("token",""));
+        mpresenter.getFunctionBooking(SPUtils.getStringValue("token",""),0);
+        mpresenter.getFloors(SPUtils.getStringValue("token",""));
 
     }
 
@@ -74,7 +77,20 @@ public class FunctionBookingActivity extends BaseActivity implements FunctionBoo
     }
 
     @Override
+    public void setFloors(BaseRespose<List<Floor>> respose) {
+        if(null!= respose.getData()){
+            floorsData = respose.getData();
+            ToastUitl.showShort("获取楼层格局成功");
+        }
+    }
+
+    @Override
     public void getFunctionBookingFail(String errMsg) {
+        ToastUitl.showShort(errMsg);
+    }
+
+    @Override
+    public void getFloorsFail(String errMsg) {
         ToastUitl.showShort(errMsg);
     }
 
