@@ -34,7 +34,19 @@
         <activity
             android:name=".activities.LoginActivity"
             android:screenOrientation="portrait"
+            android:launchMode="singleTop"
             android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".modules.dishorder.FunctionModuleActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity
+            android:name=".modules.dishorder.FunctionBookingActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme"/>
+
         <activity
             android:name=".modules.zhihu.zhihudetail.ZhihuStoryInfoActivity"
             android:screenOrientation="portrait"

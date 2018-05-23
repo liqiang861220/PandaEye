@@ -7,27 +7,29 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
-import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup.MarginLayoutParams;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.pandaq.pandaeye.BaseActivity;
 import com.pandaq.pandaeye.R;
 import com.pandaq.pandaeye.modules.dishorder.DishOrderContract;
 import com.pandaq.pandaeye.modules.dishorder.DishOrderPresenter;
+import com.pandaq.pandaeye.modules.dishorder.FunctionModuleActivity;
 import com.pandaq.pandaeye.modules.dishorder.beans.LoginUser;
 import com.pandaq.pandaeye.utils.JellyInterpolator;
+import com.pandaq.pandaeye.utils.SPUtils;
 import com.pandaq.pandaeye.utils.ToastUitl;
 import com.pandaq.pandaeye.widget.BaseRespose;
 
-public class LoginActivity extends Activity implements OnClickListener,DishOrderContract.View {
+public class LoginActivity extends BaseActivity implements OnClickListener,DishOrderContract.View {
 
 	private TextView mBtnLogin;
 
@@ -170,19 +172,18 @@ public class LoginActivity extends Activity implements OnClickListener,DishOrder
 
 	}
 
-	@Override
-	public void userLogin() {
-
-	}
 
 	@Override
 	public void loginSuccessed(BaseRespose<LoginUser> respose) {
 		ToastUitl.showLong(respose.msg);
+		SPUtils.putStringValue("token",respose.getData().getToken());
 		new Handler().postDelayed(new Runnable() {
 			public void run() {
 				set.end();
 			}
 		}, 1000);
+
+        startActivity(FunctionModuleActivity.class);
 		finish();
 
 

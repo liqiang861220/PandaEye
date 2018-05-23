@@ -14,8 +14,6 @@ public interface DishOrderContract {
 
         void hideRefreshBar();
 
-        void userLogin();
-
         void loginSuccessed(BaseRespose<LoginUser> respose);
 
         void loginFail(String errMsg);
