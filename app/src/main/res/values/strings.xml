@@ -41,4 +41,7 @@
     <string name="content_to_request_permission">保证应用正常运行，请授予必要权限！</string>
     <string name="attention">提示</string>
     <string name="ok">好的~</string>
+
+    <string name="scroll_behavior">@string/appbar_scrolling_view_behavior</string>
+    <string name="detail_header_behavior">com.pandaq.pandaeye.modules.dishorder.fooddetail.DetailHeaderBehavior</string>
 </resources>

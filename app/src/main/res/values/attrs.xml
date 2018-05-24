@@ -14,4 +14,9 @@
         <attr name="actionState" format="string"/>
         <attr name="tint" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="AddWidget">
+        <attr name="circle_anim" format="boolean"/>
+        <attr name="sub_anim" format="boolean"/>
+    </declare-styleable>
 </resources>

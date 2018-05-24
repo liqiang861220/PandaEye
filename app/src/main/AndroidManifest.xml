@@ -40,17 +40,30 @@
             android:name=".modules.dishorder.FunctionModuleActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTop"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name=".modules.dishorder.FunctionBookingActivity"
             android:screenOrientation="portrait"
             android:launchMode="singleTop"
-            android:theme="@style/AppTheme"/>
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
+        <activity
+            android:name=".modules.dishorder.CreateOrderActivity"
+            android:screenOrientation="portrait"
+            android:launchMode="singleTop"
+            android:theme="@style/TranslucentFullScreenTheme"/>
+
+        <activity
+            android:name=".modules.dishorder.fooddetail.DetailActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/NoTitleTranslucentTheme">
+        </activity>
 
         <activity
             android:name=".modules.zhihu.zhihudetail.ZhihuStoryInfoActivity"
             android:screenOrientation="portrait"
             android:theme="@style/TranslucentFullScreenTheme"/>
+
         <activity
             android:name=".modules.news.newsdetail.NewsDetailActivity"
             android:screenOrientation="portrait"

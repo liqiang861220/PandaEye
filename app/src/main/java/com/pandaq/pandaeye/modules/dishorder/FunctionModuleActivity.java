@@ -2,7 +2,6 @@ package com.pandaq.pandaeye.modules.dishorder;
 
 import android.os.Bundle;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
@@ -39,7 +38,7 @@ public class FunctionModuleActivity extends BaseActivity implements FunctionModu
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_function_module);
         gv_function_list = (GridView) findViewById(R.id.gv_function_list);
 
