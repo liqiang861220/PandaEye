@@ -22,7 +22,7 @@ class DetailAdapter extends BaseQuickAdapter<FoodBean, BaseViewHolder> {
 	@Override
 	protected void convert(BaseViewHolder helper, FoodBean item) {
 		helper.setText(R.id.textView6, item.getName())
-				.setText(R.id.textView7, item.getSale())
+				.setText(R.id.textView7, item.getSale_count())
 				.setText(R.id.textView8, item.getStrPrice(mContext))
 				.setImageResource(R.id.imageView2, item.getIcon())
 		;

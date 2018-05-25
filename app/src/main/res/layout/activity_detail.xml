@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:id="@+id/detail_main"
     android:layout_height="match_parent"
-    tools:context="com.k.neleme.detail.DetailActivity">
+    tools:context="com.pandaq.pandaeye.modules.dishorder.fooddetail.DetailActivity">
 
     <include layout="@layout/view_detail_header"/>
 

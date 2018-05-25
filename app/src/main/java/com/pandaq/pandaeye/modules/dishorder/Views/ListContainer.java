@@ -19,9 +19,9 @@ import com.chad.library.adapter.base.listener.OnItemClickListener;
 import com.pandaq.pandaeye.R;
 import com.pandaq.pandaeye.modules.dishorder.adapters.FoodAdapter;
 import com.pandaq.pandaeye.modules.dishorder.adapters.TypeAdapter;
+import com.pandaq.pandaeye.modules.dishorder.beans.CategoriesBean;
 import com.pandaq.pandaeye.modules.dishorder.beans.FoodBean;
 import com.pandaq.pandaeye.modules.dishorder.fooddetail.DetailActivity;
-import com.pandaq.pandaeye.modules.dishorder.utils.BaseUtils;
 import com.pandaq.pandaeye.modules.dishorder.utils.ViewUtils;
 
 import java.util.ArrayList;
@@ -32,7 +32,9 @@ public class ListContainer extends LinearLayout {
 	public TypeAdapter typeAdapter;
 	private RecyclerView recyclerView2;
 	private LinearLayoutManager linearLayoutManager;
+	private List<CategoriesBean> categoriesBeens;
 	private List<FoodBean> foodBeanList;
+
 	private boolean move;
 	private int index;
 	private Context mContext;
@@ -49,9 +51,13 @@ public class ListContainer extends LinearLayout {
 		super(context, attrs);
 		mContext = context;
 		inflate(mContext, R.layout.view_listcontainer, this);
+
+	}
+
+	public void initViewAndLoadData(List<CategoriesBean> categoriesBeens, final List<FoodBean> foodBeanList){
 		RecyclerView recyclerView1 = (RecyclerView) findViewById(R.id.recycler1);
 		recyclerView1.setLayoutManager(new LinearLayoutManager(mContext));
-		typeAdapter = new TypeAdapter(BaseUtils.getTypes());
+		typeAdapter = new TypeAdapter(categoriesBeens);
 		View view = new View(mContext);
 		view.setMinimumHeight(ViewUtils.dip2px(mContext, 50));
 		typeAdapter.addFooterView(view);
@@ -80,8 +86,7 @@ public class ListContainer extends LinearLayout {
 		linearLayoutManager = new LinearLayoutManager(mContext);
 		recyclerView2.setLayoutManager(linearLayoutManager);
 		((DefaultItemAnimator) recyclerView2.getItemAnimator()).setSupportsChangeAnimations(false);
-		foodBeanList = BaseUtils.getDatas(mContext);
-		commandList = BaseUtils.getDetails(foodBeanList);
+		commandList = foodBeanList;
 		recyclerView2.addOnItemTouchListener(new OnItemClickListener() {
 			@Override
 			public void onItemChildClick(BaseQuickAdapter adapter, View view, int position) {
@@ -178,5 +183,21 @@ public class ListContainer extends LinearLayout {
 				}
 			}
 		});
+	}
+
+	public List<CategoriesBean> getCategoriesBeens() {
+		return categoriesBeens;
+	}
+
+	public void setCategoriesBeens(List<CategoriesBean> categoriesBeens) {
+		this.categoriesBeens = categoriesBeens;
+	}
+
+	public List<FoodBean> getFoodBeanList() {
+		return foodBeanList;
+	}
+
+	public void setFoodBeanList(List<FoodBean> foodBeanList) {
+		this.foodBeanList = foodBeanList;
 	}
 }

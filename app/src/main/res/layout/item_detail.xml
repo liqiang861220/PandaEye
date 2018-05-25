@@ -49,9 +49,9 @@
         app:layout_constraintLeft_toLeftOf="@+id/textView7"
         app:layout_constraintTop_toBottomOf="@+id/textView7"/>
 
-    <view.
+    <view
         android:id="@+id/detail_addwidget"
-        class="om.pandaq.pandaeye.modules.dishorder.Views.AddWidget"
+        class="com.pandaq.pandaeye.modules.dishorder.Views.AddWidget"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="0dp"

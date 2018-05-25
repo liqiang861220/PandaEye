@@ -3,12 +3,14 @@ package com.pandaq.pandaeye.modules.dishorder.adapters;
 
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.pandaq.pandaeye.R;
 import com.pandaq.pandaeye.modules.dishorder.Views.AddWidget;
 import com.pandaq.pandaeye.modules.dishorder.beans.FoodBean;
+
 import java.util.List;
-import com.pandaq.pandaeye.R;
 
 public class FoodAdapter extends BaseQuickAdapter<FoodBean, BaseViewHolder> {
 	public static final int FIRST_STICKY_VIEW = 1;
@@ -27,7 +29,7 @@ public class FoodAdapter extends BaseQuickAdapter<FoodBean, BaseViewHolder> {
 	protected void convert(BaseViewHolder helper, FoodBean item) {
 		helper.setText(R.id.tv_name, item.getName())
 				.setText(R.id.tv_price,item.getStrPrice(mContext))
-				.setText(R.id.tv_sale, item.getSale())
+				.setText(R.id.tv_sale, item.getSale_count())
 				.setImageResource(R.id.iv_food, item.getIcon()).addOnClickListener(R.id.addwidget)
 				.addOnClickListener(R.id.food_main)
 		;

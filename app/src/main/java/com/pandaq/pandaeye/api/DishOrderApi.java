@@ -3,6 +3,7 @@ package com.pandaq.pandaeye.api;
 import com.pandaq.pandaeye.modules.dishorder.beans.DishDesk;
 import com.pandaq.pandaeye.modules.dishorder.beans.Floor;
 import com.pandaq.pandaeye.modules.dishorder.beans.FunctionModule;
+import com.pandaq.pandaeye.modules.dishorder.beans.GroupsAndFoods;
 import com.pandaq.pandaeye.modules.dishorder.beans.LoginUser;
 import com.pandaq.pandaeye.widget.BaseRespose;
 
@@ -56,5 +57,16 @@ public interface DishOrderApi {
      */
     @GET("v1/desks/{token}")
     Observable<BaseRespose<List<DishDesk>>> getFuncitonBooking(@Path("token") String token, @Query("floor") int floor);
+
+
+    /**
+     * 获取餐桌
+     * @param token
+     * @return
+     */
+    @GET("v1/menus/{token}")
+    Observable<BaseRespose<GroupsAndFoods>> getFoods(@Path("token") String token);
+
+
 
 }

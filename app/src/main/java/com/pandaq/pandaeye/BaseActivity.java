@@ -237,4 +237,22 @@ public class BaseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void close(View view) {
+        finish();
+    }
+
+    public void goAccount(View view) {
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+    }
 }

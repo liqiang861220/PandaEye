@@ -31,11 +31,14 @@ import com.pandaq.pandaeye.modules.dishorder.Views.ShopCarView;
 import com.pandaq.pandaeye.modules.dishorder.Views.ShopInfoContainer;
 import com.pandaq.pandaeye.modules.dishorder.adapters.CarAdapter;
 import com.pandaq.pandaeye.modules.dishorder.beans.FoodBean;
+import com.pandaq.pandaeye.modules.dishorder.beans.GroupsAndFoods;
 import com.pandaq.pandaeye.modules.dishorder.behaviors.AppBarBehavior;
 import com.pandaq.pandaeye.modules.dishorder.fooddetail.ShopDetailActivity;
 import com.pandaq.pandaeye.modules.dishorder.fragments.FirstFragment;
 import com.pandaq.pandaeye.modules.dishorder.fragments.SecondFragment;
 import com.pandaq.pandaeye.modules.dishorder.utils.ViewUtils;
+import com.pandaq.pandaeye.utils.SPUtils;
+import com.pandaq.pandaeye.widget.BaseRespose;
 import com.shizhefei.view.indicator.IndicatorViewPager;
 import com.shizhefei.view.indicator.ScrollIndicatorView;
 import com.shizhefei.view.indicator.slidebar.ColorBar;
@@ -48,7 +51,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class CreateOrderActivity extends BaseActivity implements AddWidget.OnAddClick {
+public class CreateOrderActivity extends BaseActivity implements AddWidget.OnAddClick,CreateOrderContract.View {
 
     public static final String CAR_ACTION = "handleCar";
     public static final String CLEARCAR_ACTION = "clearCar";
@@ -58,6 +61,7 @@ public class CreateOrderActivity extends BaseActivity implements AddWidget.OnAdd
     private FirstFragment firstFragment;
     public static CarAdapter carAdapter;
     private ShopCarView shopCarView;
+    private CreateOrderContract.Presenter mPresenter = new CreateOrderPresenter(this);
 
 
 
@@ -112,8 +116,8 @@ public class CreateOrderActivity extends BaseActivity implements AddWidget.OnAdd
         toolbar.setTitle("");
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        initViewpager();
-        initShopCar();
+        mPresenter.getFoods(SPUtils.getStringValue("token",""));
+
     }
 
     private void initShopCar() {
@@ -129,7 +133,7 @@ public class CreateOrderActivity extends BaseActivity implements AddWidget.OnAdd
         carAdapter.bindToRecyclerView(carRecView);
     }
 
-    private void initViewpager() {
+    private void initViewpager(GroupsAndFoods groupsAndFoods) {
         scroll_container = findViewById(R.id.scroll_container);
         ScrollIndicatorView mSv = (ScrollIndicatorView) findViewById(R.id.indicator);
         ColorBar colorBar = new ColorBar(this, ContextCompat.getColor(this, R.color.dicator_line_blue), 6,
@@ -142,8 +146,33 @@ public class CreateOrderActivity extends BaseActivity implements AddWidget.OnAdd
         ViewPager mViewPager = (ViewPager) findViewById(R.id.viewpager);
         IndicatorViewPager indicatorViewPager = new IndicatorViewPager(mSv, mViewPager);
         firstFragment = new FirstFragment();
+        Bundle mBundle = new Bundle();
+        mBundle.putSerializable("initData",groupsAndFoods);
+        firstFragment.setArguments(mBundle );
         ViewpagerAdapter myAdapter = new ViewpagerAdapter(getSupportFragmentManager());
         indicatorViewPager.setAdapter(myAdapter);
+    }
+
+    @Override
+    public void showRefreshBar() {
+
+    }
+
+    @Override
+    public void hideRefreshBar() {
+
+    }
+
+    @Override
+    public void getFoodsSuccessed(BaseRespose<GroupsAndFoods> respose) {
+        initViewpager(respose.getData());
+        initShopCar();
+    }
+
+
+    @Override
+    public void getFoodsFail(String errMsg) {
+
     }
 
     private class ViewpagerAdapter extends IndicatorViewPager.IndicatorFragmentPagerAdapter {
@@ -276,7 +305,6 @@ public class CreateOrderActivity extends BaseActivity implements AddWidget.OnAdd
     protected void onDestroy() {
         super.onDestroy();
         unregisterReceiver(broadcastReceiver);
-        System.exit(0);
     }
 
     public void toShopDetail(View view) {

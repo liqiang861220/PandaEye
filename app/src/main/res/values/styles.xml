@@ -12,17 +12,27 @@
         <item name="android:radioButtonStyle">@color/colorPrimary</item>
     </style>
 
+    <style name="AppTheme2" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:scaleType">centerCrop</item>
+    </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
 
     <style name="RatingBar" parent="AppTheme">
         <item name="android:selectableItemBackground">@color/base_back_FFFAFAFA</item>
         <item name="colorControlActivated">@color/green_4ad3a7</item>
     </style>
 
-
-    <style name="NoTitleTranslucentTheme" parent="@style/AppTheme">
+    <style name="NoTitleTranslucentTheme" parent="@style/AppTheme2">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@color/transparent_bg</item>
         <item name="android:windowIsTranslucent">true</item>

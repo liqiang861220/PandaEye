@@ -6,23 +6,22 @@ import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.pandaq.pandaeye.R;
-import com.pandaq.pandaeye.modules.dishorder.beans.TypeBean;
+import com.pandaq.pandaeye.modules.dishorder.beans.CategoriesBean;
 
 import java.util.HashMap;
 import java.util.List;
 
-public class TypeAdapter extends BaseQuickAdapter<TypeBean, BaseViewHolder> {
+public class TypeAdapter extends BaseQuickAdapter<CategoriesBean, BaseViewHolder> {
 	private int checked;
-	private List<TypeBean> data;
+	private List<CategoriesBean> data;
 	public boolean fromClick;
 	private String typeStr;
 	private HashMap<String, Long> badges = new HashMap<>();
 
-	public TypeAdapter(@Nullable List<TypeBean> data) {
+	public TypeAdapter(@Nullable List<CategoriesBean> data) {
 		super(R.layout.item_type, data);
 		this.data = data;
 		if (data != null && data.size() > 0) {
@@ -37,7 +36,7 @@ public class TypeAdapter extends BaseQuickAdapter<TypeBean, BaseViewHolder> {
 
 
 	@Override
-	protected void convert(BaseViewHolder helper, TypeBean item) {
+	protected void convert(BaseViewHolder helper, CategoriesBean item) {
 		helper.setText(R.id.tv_name, item.getName())
 				.setTag(R.id.item_main, item.getName());
 		if (helper.getAdapterPosition() == checked) {
