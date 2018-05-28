@@ -50,7 +50,7 @@ public class FunctionBookingActivity extends BaseActivity implements FunctionBoo
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 if(null!=destkData){
                     ToastUitl.showShort("当前点餐桌号名字叫："+destkData.get(position).getDesk_name());
-                    startActivity(CreateOrderActivity.class);
+                    startActivity(CreateOrderActivity2.class);
                 }
             }
         });
