@@ -29,8 +29,9 @@
                 android:textSize="18dp"
                 android:textColor="@color/black_414040"
                 android:padding="15dp"/>
-            <android.support.v7.widget.AppCompatSpinner
-                android:id="@+id/acs_floors"
+
+            <TextView
+                android:id="@+id/tv_floors"
                 android:layout_width="100dp"
                 android:spinnerMode="dropdown"
                 android:layout_height="wrap_content"
