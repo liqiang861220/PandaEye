@@ -19,7 +19,7 @@
         android:paddingRight="10dp"
         android:horizontalSpacing="3dp"
         android:verticalSpacing="3dp"
-        android:numColumns="2"
+        android:numColumns="1"
         android:layout_height="match_parent">
 
     </GridView>

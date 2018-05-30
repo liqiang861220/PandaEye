@@ -49,6 +49,7 @@ public class FoodBean implements Serializable {
 	private long selectCount;
 	private int icon;//图片
 	private String type;//类;
+	private int voteSize ;//下单数量
 
 	public int getIcon() {
 		return icon;
@@ -185,6 +186,14 @@ public class FoodBean implements Serializable {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public int getVoteSize() {
+		return voteSize;
+	}
+
+	public void setVoteSize(int voteSize) {
+		this.voteSize = voteSize;
 	}
 
 	public SpannableString getStrPrice(Context context) {
